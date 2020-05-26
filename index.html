@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)https://xoxo.run/login -->
+<html lang="en" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login | XoXo Network</title>
+    <link rel="stylesheet" href="./Login _ XoXo Network_files/vendor.bundle.css">
+    <link rel="stylesheet" href="./Login _ XoXo Network_files/style-lobelia.css">
+    <link rel="stylesheet" href="./Login _ XoXo Network_files/theme.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://xoxo.run/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://xoxo.run/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://xoxo.run/favicon-16x16.png">
+    <link rel="manifest" href="https://xoxo.run/site.webmanifest">
+    <link rel="mask-icon" href="https://xoxo.run/safari-pinned-tab.svg" color="#ff7700">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+<style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
+  
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+   <style>
+       .container-login100 {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: -webkit-gradient(linear, left top, right top, from(#a34ffe), to(#5934FC));
+    background: -webkit-linear-gradient(left, #A34FFE, #5934FC);
+    background: -moz-linear-gradient(left, #A34FFE, #5934FC);
+    background: -o-linear-gradient(left, #A34FFE, #5934FC);
+    background-color: linear-gradient(to right, #A34FFE, #5934FC);
+    background: #a34ffe url(assets/img/bg.png);
+    background-size: cover;
+}
+.login100-form {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 48px 65px 40px 65px;
+    background-color: #26038f;
+}
+   </style>
+
+
+
+
+    <script>
+          setTimeout(() => {
+        const queryString = window.location.search;
+        const urlParams = queryString.split("referralid=");
+       const referralid = urlParams[1]
+       console.log(urlParams[1])
+       document.getElementById("referralid").value = (referralid) ? referralid : "" ;
+     }, 100);
+
+        
+    var myContractInstance;
+var abi = [{"inputs":[{"internalType":"address","name":"_ownerAddress","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"},{"indexed":true,"internalType":"address","name":"sponsor","type":"address"},{"indexed":false,"internalType":"uint256","name":"level","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"time","type":"uint256"}],"name":"DistributeUplineEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"userId","type":"uint256"},{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":true,"internalType":"address","name":"referrer","type":"address"},{"indexed":false,"internalType":"uint256","name":"time","type":"uint256"},{"indexed":true,"internalType":"uint8","name":"autopool","type":"uint8"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"RegisterUserEvent","type":"event"},{"inputs":[],"name":"activeSlot_ap2","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"activeSlot_ap3","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"activeSlot_ap4","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"activeSlot_ap5","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"activeSlot_ap6","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"activeSlot_ap7","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"balances","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_userAddress","type":"address"}],"name":"getUserReferrals","outputs":[{"internalType":"address[]","name":"","type":"address[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"idToAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_userAddress","type":"address"}],"name":"isUserExists","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_userAddress","type":"address"}],"name":"isUserExists2","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_userAddress","type":"address"}],"name":"isUserExists3","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_userAddress","type":"address"}],"name":"isUserExists4","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_userAddress","type":"address"}],"name":"isUserExists5","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_userAddress","type":"address"}],"name":"isUserExists6","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_userAddress","type":"address"}],"name":"isUserExists7","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_userAddress","type":"address"}],"name":"isUserQualified","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"newUserId","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"newUserId_ap2","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"newUserId_ap3","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"newUserId_ap4","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"newUserId_ap5","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"newUserId_ap6","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"newUserId_ap7","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_referrerId","type":"uint256"}],"name":"participatePool1","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"participatePool2","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"participatePool3","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"participatePool4","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"participatePool5","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"participatePool6","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"participatePool7","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"pool_slots_2","outputs":[{"internalType":"address","name":"userAddress","type":"address"},{"internalType":"uint256","name":"referrerID","type":"uint256"},{"internalType":"uint256","name":"eventsCount","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"pool_slots_3","outputs":[{"internalType":"address","name":"userAddress","type":"address"},{"internalType":"uint256","name":"referrerID","type":"uint256"},{"internalType":"uint256","name":"eventsCount","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"pool_slots_4","outputs":[{"internalType":"address","name":"userAddress","type":"address"},{"internalType":"uint256","name":"referrerID","type":"uint256"},{"internalType":"uint256","name":"eventsCount","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"pool_slots_5","outputs":[{"internalType":"address","name":"userAddress","type":"address"},{"internalType":"uint256","name":"referrerID","type":"uint256"},{"internalType":"uint256","name":"eventsCount","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"pool_slots_6","outputs":[{"internalType":"address","name":"userAddress","type":"address"},{"internalType":"uint256","name":"referrerID","type":"uint256"},{"internalType":"uint256","name":"eventsCount","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"pool_slots_7","outputs":[{"internalType":"address","name":"userAddress","type":"address"},{"internalType":"uint256","name":"referrerID","type":"uint256"},{"internalType":"uint256","name":"eventsCount","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"uplineAmount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"users","outputs":[{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"uint256","name":"referrerCount","type":"uint256"},{"internalType":"uint256","name":"referrerID","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"users_2","outputs":[{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"uint256","name":"referrerID","type":"uint256"},{"internalType":"uint256","name":"reinvestCount","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"users_3","outputs":[{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"uint256","name":"referrerID","type":"uint256"},{"internalType":"uint256","name":"reinvestCount","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"users_4","outputs":[{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"uint256","name":"referrerID","type":"uint256"},{"internalType":"uint256","name":"reinvestCount","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"users_5","outputs":[{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"uint256","name":"referrerID","type":"uint256"},{"internalType":"uint256","name":"reinvestCount","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"users_6","outputs":[{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"uint256","name":"referrerID","type":"uint256"},{"internalType":"uint256","name":"reinvestCount","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"users_7","outputs":[{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"uint256","name":"referrerID","type":"uint256"},{"internalType":"uint256","name":"reinvestCount","type":"uint256"}],"stateMutability":"view","type":"function"}]
+var address = "0x9b8966c709ac545e9158bf4f9bffa2a973625e38";
+var account = "";
+
+   
+
+
+function SigninPage(){
+  
+    if (typeof web3 !== 'undefined') {
+     
+        $('#lgambtn').show();
+       
+        web3 = new Web3(web3.currentProvider);
+
+        web3.eth.getAccounts().then(function (result) {
+            account = result[0];
+          
+        });
+        MyContract = new web3.eth.Contract(abi, address);
+        // initiate contract for an address
+
+        myContractInstance = MyContract;
+
+
+
+    } else {
+       
+        const infura = 'https://mainnet.infura.io/v3/a380edd901454cf6ba4b4cefe4c8f7be';
+          const web3 = new Web3(new Web3.providers.HttpProvider(infura));
+
+        MyContract = new web3.eth.Contract(abi, address);
+        // initiate contract for an address
+        myContractInstance = MyContract;
+    }
+
+}
+
+$(document).ready(function () { 
+
+    $('#lgambtn').click(function () {
+       
+
+        try {
+            myContractInstance.methods.users(account).call().then(function (result) {
+                if (result[0]) {
+                    localStorage.setItem("address", account);
+                    location.href = "../Home-Dashboard/";
+                }
+                else {
+                    $('.error').html('You need to register first');
+                    $('.error').show();
+                }
+
+
+            });
+        }
+        catch (e) {
+            console.log(e)
+        }
+    })
+
+    function trackTransaction(result) {
+
+        console.log(result);
+        web3.eth.getTransactionReceipt(result, function (error, result1) {
+            if (result1 == null) {
+                $('.error').html('Pending : Transaction waiting for comfirmation');
+                $('.error').show();
+
+                trackTransaction(result)
+            }
+            else {
+                if (result1.status == "0x1") {
+                    alert("success")
+                    localStorage.setItem("address", account);
+                    location.href = "../Home-Dashboard/";
+                }
+                else {
+                    $('.error').html('Transaction Failed');
+                    $('.error').show();
+                }
+            }
+        })
+    }
+
+    $('#lgmbtnsup').click(async () => {
+      
+        var add = $('[name="referral"]').val();
+        if (add.length == 0) {
+            $('.error').html('Enter referral code');
+            $('.error').show();
+
+            return false;
+        }
+      
+        if (typeof web3 !== 'undefined') {
+           
+           
+            await ethereum.enable();
+            
+            
+            web3 = new Web3(web3.currentProvider);
+  MyContract = new web3.eth.Contract(abi, address);
+            // initiate contract for an address
+
+            myContractInstance = MyContract;
+
+        //   checkbuyLevel();
+            web3.eth.getAccounts().then(function(result){
+                account = result[0];
+                SignUpPay(account);
+            });
+             
+          
+
+          
+
+           
+
+        }
+        else {
+            console.log("Metamask not found")
+        }
+
+    })
+
+
+    function SignUpPay(account) {
+        var add = $('[name="referral"]').val();
+        myContractInstance.methods.regUser(add).send({ from: account, value: 50000000000000000, gasprice: 100  })
+            .on('transactionHash', function (hash) {
+                $('.error').html('Pending : Transaction waiting for comfirmation');
+                $('.error').show();
+
+              //  trackTransaction(result);
+            })
+
+            .on('receipt', function (receipt) {
+                // receipt example
+                console.log(receipt);
+               
+               
+                    if (receipt.status) {
+                        alert("success")
+                        localStorage.setItem("address", account);
+                        location.href = "../Home-Dashboard/";
+                    }
+                    else {
+                        $('.error').html('Transaction Failed');
+                        $('.error').show();
+                    }
+                
+            })
+            .on('error', console.error);
+
+    }
+
+
+
+    $('#lgmbtn').click(function () {
+        var add = $('[name="ethaddress"]').val();
+        if (add.length > 0) {
+            try {
+                myContractInstance.methods.users(add).call().then(function (result) {
+                    
+                    if (result[0]) {
+
+                       
+
+                            localStorage.setItem("address", add);
+                            location.href = "../Home-Dashboard/";
+                        }
+                        else {
+                            $('.error').html('You need to register first');
+                            $('.error').show();
+                        }
+                    
+
+                });
+
+            }
+            catch (err) {
+                console.log(err);
+            }
+
+        }
+        else {
+            $('.error').html('Enter Valid ETH address');
+            $('.error').show();
+        }
+    });
+
+
+
+})
+    </script>
+
+    <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+    <script src="/socialjs.js/"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            socialjs.init({
+                container: '.socialjs',
+                https: true
+            });
+        });
+        
+      </script>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <body class="nk-body body-wider bg-light-alt no-touch nk-nio-theme page-loaded chrome">
+
+    <div class="limiter">
+        
+            <div class="wrap-login100">
+                
+
+
+
+
+
+    <div class="nk-wrap">
+    
+        <main class="nk-pages nk-pages-centered bg-theme">
+            <div class="ath-container">
+                <div class="ath-body">
+                    <a href="https://xoxo.run/" class="ath-logo mb-5 text-center d-block"><img src="./Login _ XoXo Network_files/logo.png" alt="logo"></a>
+
+                    
+<p class="text-center text-azure m-b-5" style="color: black;">
+                        You don't have referral code use <b> ' 1 '</b> as referral id.
+                        </p>
+
+                        <div class="wrap-input100 validate-input m-b-20" data-validate="Type user name">
+                            <input id="referralid" class="input100" type="text"  name="referral" value=""  placeholder="Enter Referral code">
+                           
+                            <span class="focus-input100"></span>
+
+
+
+
+<form action="https://xoxo.run/login">
+                        <button class="btn btn-primary btn-block btn-md w-100" id="lgmbtnsup" type="button">Early Leader Register</button>
+                    </form>
+                    
+                </div>
+                
+            </div>
+        </main>
+    
+    </div>
+    <div class="preloader" style="display: none;"><span class="spinner spinner-round load-done" style="display: none;"></span></div>
+    
+
+
+
+</body></html>
