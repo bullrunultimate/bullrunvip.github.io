@@ -1,0 +1,1165 @@
+var xoxoContractInstance;
+var abi = [
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_ownerAddress",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "sponsor",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "level",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "time",
+                "type": "uint256"
+            }
+        ],
+        "name": "DistributeUplineEvent",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_referrerId",
+                "type": "uint256"
+            }
+        ],
+        "name": "participatePool1",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "participatePool2",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "participatePool3",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "participatePool4",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "participatePool5",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "participatePool6",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "participatePool7",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "userId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "referrer",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "time",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "uint8",
+                "name": "autopool",
+                "type": "uint8"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "RegisterUserEvent",
+        "type": "event"
+    },
+    {
+        "inputs": [],
+        "name": "activeSlot_ap2",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "activeSlot_ap3",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "activeSlot_ap4",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "activeSlot_ap5",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "activeSlot_ap6",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "activeSlot_ap7",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "balances",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_userAddress",
+                "type": "address"
+            }
+        ],
+        "name": "getUserReferrals",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "idToAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_userAddress",
+                "type": "address"
+            }
+        ],
+        "name": "isUserExists",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_userAddress",
+                "type": "address"
+            }
+        ],
+        "name": "isUserExists2",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_userAddress",
+                "type": "address"
+            }
+        ],
+        "name": "isUserExists3",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_userAddress",
+                "type": "address"
+            }
+        ],
+        "name": "isUserExists4",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_userAddress",
+                "type": "address"
+            }
+        ],
+        "name": "isUserExists5",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_userAddress",
+                "type": "address"
+            }
+        ],
+        "name": "isUserExists6",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_userAddress",
+                "type": "address"
+            }
+        ],
+        "name": "isUserExists7",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_userAddress",
+                "type": "address"
+            }
+        ],
+        "name": "isUserQualified",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "newUserId",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "newUserId_ap2",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "newUserId_ap3",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "newUserId_ap4",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "newUserId_ap5",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "newUserId_ap6",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "newUserId_ap7",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "pool_slots_2",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "userAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerID",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "eventsCount",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "pool_slots_3",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "userAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerID",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "eventsCount",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "pool_slots_4",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "userAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerID",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "eventsCount",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "pool_slots_5",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "userAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerID",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "eventsCount",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "pool_slots_6",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "userAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerID",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "eventsCount",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "pool_slots_7",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "userAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerID",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "eventsCount",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "uplineAmount",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "users",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerCount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerID",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "users_2",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerID",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "reinvestCount",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "users_3",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerID",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "reinvestCount",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "users_4",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerID",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "reinvestCount",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "users_5",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerID",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "reinvestCount",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "users_6",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerID",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "reinvestCount",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "users_7",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "referrerID",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "reinvestCount",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+];
+
+var address = "0xee744c63328c39983c3bf554dc366560ba8aa4c8";
+var account = "";
+
+const LoginButton = document.querySelector('#AutoLogin');
+const RegisterButton = document.querySelector('#Register');
+
+if (RegisterButton != null) {
+    RegisterButton.addEventListener('click', async () => {
+
+        if (window.ethereum) {        
+            window.web3 = new Web3(ethereum);
+            try {
+                await ethereum.enable();
+                const accounts = await ethereum.enable();
+                const getaccount = accounts[0];
+                account = getaccount;
+                var xoxoContract = new web3.eth.Contract(abi, address);
+                var _referrerId = $('input[name=_referralID]').val();
+                var options = { from: account, gas: 500000, gasPrice: 25000000000, value: 100000000000000000};
+                xoxoContract.methods.participatePool1(_referrerId).send(options)
+                .on('transactionHash', function(hash){
+                    
+                    toastr.options = {
+                        "closeButton": true,
+                        "tapToDismiss": false,
+                        "newestOnTop": false,
+                        "preventDuplicates": false,
+                        "positionClass": "toast-bottom-center",
+                        "showDuration": "300",
+                        "hideDuration": "10000",
+                        "timeOut": "0",
+                        "extendedTimeOut": "0"
+                    };
+                    toastr.info('<em class="ti ti-na toast-message-icon"></em> Transactions '+hash+' created. Waiting for confirmations 0/1');
+
+                })
+                .on('confirmation', function(confirmationNumber, receipt){
+                    
+                    if (confirmationNumber < 2) {
+
+                        toastr.options = {
+                            "closeButton": true,
+                            "tapToDismiss": false,
+                            "newestOnTop": false,
+                            "preventDuplicates": false,
+                            "positionClass": "toast-bottom-center",
+                            "showDuration": "300",
+                            "hideDuration": "10000",
+                            "timeOut": "0",
+                            "extendedTimeOut": "0"
+                        };
+                        toastr.info('<em class="ti ti-na toast-message-icon"></em> Awaiting confirmation for transaction '+confirmationNumber+'/1!');
+
+                    }
+
+                })
+                .on('receipt', function(receipt){
+                    
+                    localStorage.setItem("address", account);
+                    toastr.options = {
+                        "closeButton": true,
+                        "tapToDismiss": false,
+                        "newestOnTop": false,
+                        "preventDuplicates": false,
+                        "positionClass": "toast-bottom-center",
+                        "showDuration": "300",
+                        "hideDuration": "10000",
+                        "timeOut": "0",
+                        "extendedTimeOut": "0"
+                    };
+                    toastr.success('You are successfully Registered. Redirecting...');
+                    setTimeout(function(){
+                        location.href = "https://xoxo.run/dashboard";
+                    }, 1000);
+
+                })
+                .on('error', function(error){
+                    toastr.options = {
+                        "closeButton": true,
+                        "tapToDismiss": false,
+                        "newestOnTop": false,
+                        "preventDuplicates": false,
+                        "positionClass": "toast-bottom-center",
+                        "showDuration": "300",
+                        "hideDuration": "10000",
+                        "timeOut": "0",
+                        "extendedTimeOut": "0"
+                    };
+                    if (error.message != '')
+                      toastr.error('<em class="ti ti-na toast-message-icon"></em> Error: '+error.message+'');
+                    else toastr.error('<em class="ti ti-na toast-message-icon"></em> Error: '+error+'');
+                });
+
+
+            } catch (error) {
+                
+                toastr.options = {
+                    "closeButton": true,
+                    "tapToDismiss": false,
+                    "newestOnTop": false,
+                    "preventDuplicates": false,
+                    "positionClass": "toast-bottom-center",
+                    "showDuration": "300",
+                    "hideDuration": "10000",
+                    "timeOut": "0",
+                    "extendedTimeOut": "0"
+                };
+                toastr.error('<em class="ti ti-na toast-message-icon"></em> Action was canceled. Error: ' + error);
+                if (error.message != '')
+                  toastr.error('<em class="ti ti-na toast-message-icon"></em> Error: '+error.message+'');
+                else toastr.error('<em class="ti ti-na toast-message-icon"></em> Error: '+error+'');
+
+            }
+        }
+    });
+}
+
+if (LoginButton != null) {
+    LoginButton.addEventListener('click', async () => {
+
+        if (window.ethereum) {        
+            window.web3 = new Web3(ethereum);
+            try {
+                await ethereum.enable();
+                const accounts = await ethereum.enable();
+                const getaccount = accounts[0];
+                account = getaccount;
+                console.log(account);
+                var xoxoContract = new web3.eth.Contract(abi, address);
+                xoxoContract.methods.users(account).call().then(function (result) {
+                    if (result.id > 0) {
+                        localStorage.setItem("address", account);
+                        toastr.options = {
+                            "closeButton": true,
+                            "tapToDismiss": false,
+                            "newestOnTop": false,
+                            "preventDuplicates": false,
+                            "positionClass": "toast-bottom-center",
+                            "showDuration": "300",
+                            "hideDuration": "10000",
+                            "timeOut": "0",
+                            "extendedTimeOut": "0"
+                        };
+                        toastr.success('You are successfully logged in. Redirecting...');
+
+                        setTimeout(function(){
+                            location.href = "https://xoxo.run/dashboard";
+                        }, 1000)
+                    }
+                    else {
+                        toastr.options = {
+                            "closeButton": true,
+                            "tapToDismiss": false,
+                            "newestOnTop": false,
+                            "preventDuplicates": false,
+                            "positionClass": "toast-bottom-center",
+                            "showDuration": "300",
+                            "hideDuration": "10000",
+                            "timeOut": "0",
+                            "extendedTimeOut": "0"
+                        };
+                        toastr.error('<em class="ti ti-na toast-message-icon"></em> You need to register first');
+                    }
+                });
+
+            } catch (error) {
+                
+                toastr.options = {
+                    "closeButton": true,
+                    "tapToDismiss": false,
+                    "newestOnTop": false,
+                    "preventDuplicates": false,
+                    "positionClass": "toast-bottom-center",
+                    "showDuration": "300",
+                    "hideDuration": "10000",
+                    "timeOut": "0",
+                    "extendedTimeOut": "0"
+                };
+                toastr.error('<em class="ti ti-na toast-message-icon"></em> Action was canceled.' + error);
+                if (error.message != '')
+                  toastr.error('<em class="ti ti-na toast-message-icon"></em> Error: '+error.message+'');
+                else toastr.error('<em class="ti ti-na toast-message-icon"></em> Error: '+error+'');
+
+            }
+        }
+        else if (window.web3) {
+            window.web3 = new Web3(web3.currentProvider);
+            // Acccounts always exposed
+            
+        }
+    });
+}
+
+
+
+window.addEventListener('load', async () => {
+
+    if (window.ethereum) {        
+        window.web3 = new Web3(ethereum);
+        try {
+
+            await ethereum.enable();
+            const accounts = await ethereum.enable();
+            const getaccount = accounts[0];
+            account = getaccount;
+
+            xoxoContractInstance = new web3.eth.Contract(abi, address);
+
+            if (account != localStorage.address) {
+                localStorage.setItem("address", account);
+                console.log('Address changed to: ' + account);
+            }
+
+        } catch (error) {
+            
+            toastr.options = {
+                "closeButton": true,
+                "tapToDismiss": false,
+                "newestOnTop": false,
+                "preventDuplicates": false,
+                "positionClass": "toast-bottom-center",
+                "showDuration": "300",
+                "hideDuration": "10000",
+                "timeOut": "0",
+                "extendedTimeOut": "0"
+            };
+            if (error.message != '')
+              toastr.error('<em class="ti ti-na toast-message-icon"></em> Error: '+error.message+'');
+            else toastr.error('<em class="ti ti-na toast-message-icon"></em> Error: '+error+'');
+
+        }
+    }
+
+});

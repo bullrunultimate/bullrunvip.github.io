@@ -1,0 +1,19 @@
+/*!
+Template :	ICOCrypto @by Softnio
+Theme	 :  Default
+Version	 :	1.9.2
+Updated	 :	01.15.2020
+*/
+/*! WRITE YOUR CUSTOM STYLE **/
+.btn .badge {
+    transform: translate(10px, -50%);
+}
+.table-sm th, .table-sm td {
+    padding: 0.3rem !important;
+}
+.toast.toast-success {
+    background-color: #39d884; 
+}
+.section {
+    min-height: inherit;
+}
